@@ -42,8 +42,9 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-font-family = Typestar
-font-size = 12
-theme = substrata.txt
+
+font-family = IoskeleyMonoTerm Nerd Font
+font-size = 14
+theme = vague.txt
 window-width = 900
 window-height = 1000

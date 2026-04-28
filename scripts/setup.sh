@@ -70,7 +70,7 @@ copy_dir() {
     # Loop through each directory
     for dir in "${dirs[@]}"; do
         # Skip unwanted directories (when operating from project root)
-        case "$dir" in "./.git"|"./scripts")
+        case "$dir" in "./.git"|"./scripts"|"./zsh")
                 log "Skipping directory: $dir"
                 continue
                 ;;
@@ -111,4 +111,4 @@ copy_file() {
 copy_dir "config" "$CONFIG_HOME"
 
 # Copy individual files
-copy_file "config/.zshrc" "$HOME"
+copy_file "config/zsh/.zshrc" "$HOME"

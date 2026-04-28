@@ -2,11 +2,16 @@ add_newline = false
 
 format = "$directory$git_branch$git_status$kubernetes$character"
 
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
 [directory]
 format = "[$path]($style)[$read_only]($read_only_style) "
 
 [kubernetes]
 disabled = false
+format = '[$symbol$context( \($namespace\))]($style) '
 
 [gcloud]
 disabled = true

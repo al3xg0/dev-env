@@ -46,5 +46,5 @@
 font-family = IoskeleyMonoTerm Nerd Font
 font-size = 14
 theme = vague.txt
-window-width = 900
-window-height = 1000
+window-width = 300
+window-height = 300

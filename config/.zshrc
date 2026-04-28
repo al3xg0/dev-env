@@ -34,6 +34,3 @@ alias mongo-restart="brew services restart mongodb-community@7.0"
 # Plugins
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Disable underline on auto-completed suffix
-zle_highlight=(suffix:none)

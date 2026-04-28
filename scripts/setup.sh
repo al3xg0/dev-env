@@ -110,5 +110,5 @@ copy_file() {
 # Copy configuration directories
 copy_dir "config" "$CONFIG_HOME"
 
-# Copy individual files (examples)
-# copy_file "config/.zshrc" "$CONFIG_HOME" 
+# Copy individual files
+copy_file "config/.zshrc" "$HOME"

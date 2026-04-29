@@ -1,6 +1,6 @@
 export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
-export CDPATH=.:$HOME/Documents/github-repos:$HOME/Documents/github-repos/work
+export CDPATH=.:$HOME/github-repos:$HOME/github-repos/work:$HOME/github-repos/personal:$HOME/github-repos/learning
 
 # Prompt
 eval "$(starship init zsh)"

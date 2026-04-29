@@ -1,7 +1,6 @@
 add_newline = false
 
-format = "$character"
-right_format = "$directory$git_branch$git_status$kubernetes"
+format = "$directory$git_branch$git_status$kubernetes$character"
 
 [character]
 success_symbol = "[❯](bold green)"

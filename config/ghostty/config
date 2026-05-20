@@ -43,9 +43,10 @@
 # resize-overlay-duration = 4s 200ms
 
 
-#font-family = IoskeleyMonoTerm Nerd Font
+# font-family = IoskeleyMonoTerm Nerd Font Medium
 font-family = Typestar
 font-size = 13
+font-thicken = true
 theme = vague.txt
 window-width = 300
 window-height = 300

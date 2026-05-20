@@ -27,6 +27,7 @@ export LC_MESSAGES=en_US.UTF-8
 
 # Aliases
 alias k='kubectl'
+alias lg="lazygit"
 alias mongo-up="brew services start mongodb-community@7.0"
 alias mongo-down="brew services stop mongodb-community@7.0"
 alias mongo-restart="brew services restart mongodb-community@7.0"

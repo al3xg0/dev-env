@@ -1,11 +1,43 @@
 return {
   {
-    "vague2k/vague.nvim",
+    "lunacookies/vim-substrata",
+    lazy = false,
+    priority = 1000,
     config = function()
-      require("vague").setup({})
-      vim.cmd.colorscheme "vague"
-    end
+      vim.opt.termguicolors = true
+      vim.cmd.colorscheme "substrata"
+
+      -- Neovim 0.10+ ships default @-prefixed treesitter highlights linked to
+      -- NvimLightGrey* which override vim-substrata's plain syntax groups and
+      -- make identifiers look near-white. Clear them so the colorscheme wins.
+      local groups_to_clear = {
+        "@variable",
+        "@variable.builtin",
+        "@variable.parameter",
+        "@variable.member",
+        "@property",
+        "@field",
+        "@constant",
+        "@constant.builtin",
+        "@module",
+        "@label",
+        "@punctuation",
+        "@punctuation.delimiter",
+        "@punctuation.bracket",
+        "@punctuation.special",
+      }
+      for _, group in ipairs(groups_to_clear) do
+        vim.api.nvim_set_hl(0, group, {})
+      end
+    end,
   },
+  -- {
+  --   "vague2k/vague.nvim",
+  --   config = function()
+  --     require("vague").setup({})
+  --     vim.cmd.colorscheme "vague"
+  --   end
+  -- },
   -- {
   --   "rose-pine/neovim",
   --   name = "rose-pine",

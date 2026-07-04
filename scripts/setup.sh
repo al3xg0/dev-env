@@ -52,8 +52,8 @@ log "
 # Set config directory
 : "${CONFIG_HOME:=$HOME/.config}"
 
-# Change to project root directory
-execute cd "$dev_env_root"
+# Change to project root directory (always, so dry runs resolve the same paths as real runs)
+cd "$dev_env_root"
 # Function to copy directories from source to destination
 copy_dir() {
     local from="$1"
@@ -62,7 +62,7 @@ copy_dir() {
     log "Copying directories from $from to $to"
     
     # Use pushd to change directory and save current location
-    pushd "$from" > /dev/null
+    pushd "$from" > /dev/null || { log "Source directory not found: $from - skipping"; return 1 }
     
     # Find all directories at depth 1
     local dirs=($(find . -maxdepth 1 -mindepth 1 -type d))
@@ -113,3 +113,7 @@ copy_dir "config" "$CONFIG_HOME"
 # Copy individual files
 copy_file "config/.zshrc" "$HOME"
 copy_file "config/starship.toml" "$CONFIG_HOME"
+
+# Copy Claude skills to the personal Claude settings location
+execute mkdir -p "$HOME/.claude/skills"
+copy_dir "claude/skills" "$HOME/.claude/skills"

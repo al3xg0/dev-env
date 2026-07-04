@@ -43,9 +43,8 @@
 # resize-overlay-duration = 4s 200ms
 
 
-# font-family = IoskeleyMonoTerm Nerd Font Medium
-font-family = Typestar
-font-size = 13
+font-family = IoskeleyMonoTerm Nerd Font Medium
+font-size = 14
 font-thicken = true
 theme = substrata.txt
 window-width = 300

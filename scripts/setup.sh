@@ -110,6 +110,9 @@ copy_file() {
 # Copy configuration directories
 copy_dir "config" "$CONFIG_HOME"
 
+# Copy ghostty config to macOS-specific location
+copy_file "config/ghostty/config" "$HOME/Library/Application Support/com.mitchellh.ghostty"
+
 # Copy individual files
 copy_file "config/.zshrc" "$HOME"
 copy_file "config/starship.toml" "$CONFIG_HOME"

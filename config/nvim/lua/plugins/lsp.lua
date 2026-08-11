@@ -36,21 +36,19 @@ return {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      local lspconfig = require("lspconfig")
-      lspconfig.ts_ls.setup({})
-      lspconfig.lua_ls.setup({})
-      lspconfig.gopls.setup({})
-      lspconfig.pyright.setup({
-        pyright = {
-          disableOrganizeImports = true,
-        },
-        python = {
-          analysis = {
-            ignore = { "*" },
+      vim.lsp.config("pyright", {
+        settings = {
+          pyright = {
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              ignore = { "*" },
+            },
           },
         },
       })
-      lspconfig.ruff.setup({})
+      vim.lsp.enable({ "ts_ls", "lua_ls", "gopls", "pyright", "ruff" })
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})

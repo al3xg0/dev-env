@@ -46,7 +46,7 @@
 font-family = IoskeleyMonoTerm Nerd Font Medium
 font-size = 14
 font-thicken = true
-theme = vague.txt
+theme = kanso-ink.txt
 window-width = 300
 window-height = 300
 window-padding-x = 16

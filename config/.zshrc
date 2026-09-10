@@ -35,3 +35,13 @@ alias mongo-restart="brew services restart mongodb-community@7.0"
 # Plugins
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Tab "icons": ghostty has no per-tab icon feature, but macOS renders
+# emoji in tab titles, so prefix the title with one. Runs after ghostty's
+# shell integration so it wins. Swap the emoji to taste.
+GHOSTTY_TAB_ICON="📺"
+_tab_title_precmd() { print -Pn "\e]0;${GHOSTTY_TAB_ICON} %~\a" }
+_tab_title_preexec() { print -Pn "\e]0;${GHOSTTY_TAB_ICON} ${1%% *}\a" }
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _tab_title_precmd
+add-zsh-hook preexec _tab_title_preexec

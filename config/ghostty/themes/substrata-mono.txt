@@ -1,0 +1,26 @@
+# Half-mono Substrata, matching the nvim treatment: greys tinted
+# towards each original Substrata hue at 50% strength — mono
+# structure with some life left in the colours. Red/green keep more
+# saturation so diffs and errors still signal.
+palette = 0=#191c25
+palette = 1=#c2846c
+palette = 2=#789f6a
+palette = 3=#a29264
+palette = 4=#8496ae
+palette = 5=#9e8eaa
+palette = 6=#749a9c
+palette = 7=#b5b4c9
+palette = 8=#5b5f70
+palette = 9=#e8a48b
+palette = 10=#98c188
+palette = 11=#c7b47e
+palette = 12=#a7b8ce
+palette = 13=#c2b0d0
+palette = 14=#90bdc0
+palette = 15=#f0ecfe
+background = #191c25
+foreground = #b5b4c9
+cursor-color = #b5b4c9
+cursor-text = #191c25
+selection-background = #272935
+selection-foreground = #b5b4c9

@@ -46,8 +46,8 @@
 font-family = IoskeleyMonoTerm Nerd Font Medium
 font-size = 14
 font-thicken = true
-# tinted-mono Night Owl to match nvim; was vague.txt with background = #192330 (Nightfox)
-theme = night-owl-mono.txt
+# tinted-mono Substrata to match nvim; was substrata.txt (full colour)
+theme = substrata-mono.txt
 window-width = 300
 window-height = 300
 window-padding-x = 16

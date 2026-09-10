@@ -46,8 +46,8 @@
 font-family = IoskeleyMonoTerm Nerd Font Medium
 font-size = 14
 font-thicken = true
-# trying thorn — switch back to vague.txt to revert
-theme = thorn.txt
+# tinted-mono Night Owl to match nvim; was vague.txt with background = #192330 (Nightfox)
+theme = night-owl-mono.txt
 window-width = 300
 window-height = 300
 window-padding-x = 16

@@ -1,0 +1,25 @@
+# Tinted-mono Night Owl, matching the nvim treatment: greys blended
+# ~15% back towards each original Night Owl hue. Red/green keep a bit
+# more saturation so diffs and errors still signal.
+palette = 0=#011627
+palette = 1=#c98a88
+palette = 2=#85b598
+palette = 3=#b3a794
+palette = 4=#a9b4d0
+palette = 5=#ab9fb5
+palette = 6=#9fb3b3
+palette = 7=#d6deeb
+palette = 8=#5c6370
+palette = 9=#d09a97
+palette = 10=#97c4a8
+palette = 11=#c4b8a4
+palette = 12=#bac3cf
+palette = 13=#baaec4
+palette = 14=#aec4c4
+palette = 15=#ffffff
+background = #011627
+foreground = #d6deeb
+cursor-color = #a49cae
+cursor-text = #011627
+selection-background = #5f7e97
+selection-foreground = #dfe5ee

@@ -1,6 +1,3 @@
--- Trying out thorn.nvim — flip to false to go back to the tinted-mono vague
-local use_thorn = true
-
 -- Tinted-mono take on vague: the old greyscale ramp, but each step
 -- blended ~15% back towards vague's original hue, so structure still
 -- reads through lightness while a little colour comes through.
@@ -27,6 +24,8 @@ return {
       vim.opt.termguicolors = true
       require("vague").setup {
         colors = {
+          -- Night Owl background, kept from the theme experiments
+          bg = "#011627",
           comment = mono.ghost,
           keyword = mono.dim,
           operator = mono.faint,
@@ -54,108 +53,7 @@ return {
           highlights.NvimTreeSymlink = { fg = mono.mid }
         end,
       }
-      if not use_thorn then
-        vim.cmd.colorscheme "vague"
-      end
-    end,
-  },
-  {
-    "jpwol/thorn.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- Thorn-forest with the same treatment as the vague setup above:
-      -- keywords in the Old Irony copper.
-      -- towards grey so structure reads through lightness with a hint
-      -- of hue, red/git/diagnostics left full so they stand out, and
-      -- the whole palette dimmed by 10%.
-      local copper = "#CC9878"
-      local dim_factor = 0.90
-      local hue_keep = 1.0 -- 1.0 = full thorn colour; lower towards 0 for the mono look
-      local function parse(hex)
-        local r, g, b = hex:match "^#(%x%x)(%x%x)(%x%x)$"
-        if not r then
-          return nil -- e.g. "NONE"
-        end
-        return tonumber(r, 16), tonumber(g, 16), tonumber(b, 16)
-      end
-      local function darken(hex)
-        local r, g, b = parse(hex)
-        if not r then
-          return hex
-        end
-        return string.format(
-          "#%02X%02X%02X",
-          math.floor(r * dim_factor),
-          math.floor(g * dim_factor),
-          math.floor(b * dim_factor)
-        )
-      end
-      local function desaturate(hex)
-        local r, g, b = parse(hex)
-        if not r then
-          return hex
-        end
-        local grey = 0.299 * r + 0.587 * g + 0.114 * b
-        return string.format(
-          "#%02X%02X%02X",
-          math.floor(r * hue_keep + grey * (1 - hue_keep)),
-          math.floor(g * hue_keep + grey * (1 - hue_keep)),
-          math.floor(b * hue_keep + grey * (1 - hue_keep))
-        )
-      end
-      require("thorn").setup {
-        theme = "forest",
-        on_highlights = function(hl, palette)
-          -- thorn paints keywords with palette.orange; swap only the
-          -- keyword-ish groups, leaving orange's other uses alone.
-          for _, group in ipairs {
-            "Keyword",
-            "Statement",
-            "@keyword.directive",
-            "@keyword.function",
-          } do
-            -- some groups are string links, which can't be extended
-            local spec = type(hl[group]) == "table" and hl[group] or {}
-            spec.fg = copper
-            hl[group] = spec
-          end
-          -- syntax palette values to pull towards grey; red, git, diff
-          -- and background colours are deliberately left out
-          local desat = { [copper] = true }
-          for _, name in ipairs {
-            "green_0",
-            "green_1",
-            "green_2",
-            "green_3",
-            "green_4",
-            "green_5",
-            "green_6",
-            "yellow",
-            "orange",
-            "blue",
-          } do
-            desat[palette[name]] = true
-          end
-          -- runs after the copper swap so keywords get the same treatment
-          for _, spec in pairs(hl) do
-            if type(spec) == "table" then
-              for _, key in ipairs { "fg", "bg", "sp" } do
-                local value = spec[key]
-                if type(value) == "string" then
-                  if desat[value] then
-                    value = desaturate(value)
-                  end
-                  spec[key] = darken(value)
-                end
-              end
-            end
-          end
-        end,
-      }
-      if use_thorn then
-        vim.cmd.colorscheme "thorn"
-      end
+      vim.cmd.colorscheme "vague"
     end,
   },
   {

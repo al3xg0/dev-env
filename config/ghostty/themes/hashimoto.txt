@@ -1,0 +1,30 @@
+# Hashimoto for Ghostty
+# ----------------------
+# Mitchell Hashimoto's look: onehalfdark (his colorscheme per
+# mitchellh/vim-misc) washed ~50% towards grey — his screenshots get
+# the muted slate effect from background-opacity/blur over a dark blue
+# desktop, so this bakes the wash and the slate background in.
+# Pairs with active = "hashimoto" in config/nvim/lua/plugins/colortheme.lua.
+
+palette = 0=#121F27
+palette = 1=#A16E72
+palette = 2=#8FA281
+palette = 3=#BAAA8C
+palette = 4=#7092AF
+palette = 5=#9B78A5
+palette = 6=#699499
+palette = 7=#C2C4C6
+palette = 8=#53565C
+palette = 9=#AE777B
+palette = 10=#9AAF8B
+palette = 11=#C9B797
+palette = 12=#799EBD
+palette = 13=#A782B2
+palette = 14=#729FA5
+palette = 15=#D2D3D6
+
+background = #121F27
+foreground = #C2C4C6
+cursor-color = #C2C4C6
+selection-background = #2E3B47
+selection-foreground = #C2C4C6

@@ -1,0 +1,30 @@
+# Naysayer for Ghostty
+# ---------------------
+# Jonathan Blow's Emacs theme, built from the naysayer.nvim port
+# (https://github.com/RostislavArts/naysayer.nvim, lua/colors/naysayer.lua),
+# matching the naysayer setup in config/nvim/lua/plugins/colortheme.lua:
+# deep green-teal background, tan text, teal strings, white keywords,
+# and the iconic pure-blue selection.
+
+palette = 0=#0b3335
+palette = 1=#f92672
+palette = 2=#53d549
+palette = 3=#e6db74
+palette = 4=#66d9ef
+palette = 5=#ae81ff
+palette = 6=#3ad0b5
+palette = 7=#d0b892
+palette = 8=#126367
+palette = 9=#f92672
+palette = 10=#8cde94
+palette = 11=#ffaa00
+palette = 12=#66d9ef
+palette = 13=#fd5ff0
+palette = 14=#87ffde
+palette = 15=#ffffff
+
+background = #062625
+foreground = #d0b892
+cursor-color = #ffffff
+selection-background = #0000ff
+selection-foreground = #ffffff

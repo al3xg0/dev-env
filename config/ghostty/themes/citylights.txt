@@ -1,0 +1,29 @@
+# Citylights for Ghostty
+# -----------------------
+# Yummygum's citylights (citylights.xyz), via saltmade/citylights.vim.
+# ANSI palette taken from the colorscheme's terminal colour table;
+# bg/fg from Normal, selection from CursorLine, cursor from Cursor.
+# Trial theme — pairs with nvim active = "citylights".
+
+palette = 0=#1d252c
+palette = 1=#d95468
+palette = 2=#8bd49c
+palette = 3=#d98e48
+palette = 4=#539afc
+palette = 5=#b62d65
+palette = 6=#008b94
+palette = 7=#718ca1
+palette = 8=#333f4a
+palette = 9=#d95468
+palette = 10=#8bd49c
+palette = 11=#ebbf83
+palette = 12=#5ec4ff
+palette = 13=#b62d65
+palette = 14=#70e1e8
+palette = 15=#b7c5d3
+
+background = #1d252c
+foreground = #b7c5d3
+cursor-color = #77c3fa
+selection-background = #28313a
+selection-foreground = #b7c5d3

@@ -120,3 +120,7 @@ copy_file "config/starship.toml" "$CONFIG_HOME"
 # Copy Claude skills to the personal Claude settings location
 execute mkdir -p "$HOME/.claude/skills"
 copy_dir "claude/skills" "$HOME/.claude/skills"
+
+# Copy the Claude theme to the personal Claude settings location
+execute mkdir -p "$HOME/.claude/themes"
+copy_file "claude/themes/substrata-mono.json" "$HOME/.claude/themes"

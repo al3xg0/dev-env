@@ -1,11 +1,9 @@
 ---
 name: react-native-at-scale
-description: Engineering practices for mobile apps with many users and many engineers, from Gergely Orosz's Building Mobile Apps at Scale (39 engineering challenges), applied to React Native. Use when designing or reviewing anything that is hard to undo once shipped in a store binary: state and app lifecycle, offline support and retries, deeplinks and push payloads, backward compatibility with old app versions, forced upgrades, OTA updates, crash reporting, accessibility, localisation, navigation architecture, testing strategy, CI/CD and release trains, third-party SDKs, in-app purchases, feature flags and experiments, performance, analytics and alerting, privacy and security, client-side data migrations, app size, or choosing React Native versus native, Flutter or Kotlin Multiplatform. Also trigger on "can we just roll it back", "should this be behind a flag", "how do we drop support for old versions", "our crash-free rate", "the app is slow on Android", "should we build or buy this", or "how do we stop teams breaking each other's screens". Pairs with react-native-fundamentals and react-native-production for the code itself.
+description: Engineering practices for mobile apps with many users and many engineers, applied to React Native. Use when designing or reviewing anything that is hard to undo once shipped in a store binary: state and app lifecycle, offline support and retries, deeplinks and push payloads, backward compatibility with old app versions, forced upgrades, OTA updates, crash reporting, accessibility, localisation, navigation architecture, testing strategy, CI/CD and release trains, third-party SDKs, in-app purchases, feature flags and experiments, performance, analytics and alerting, privacy and security, client-side data migrations, app size, or choosing React Native versus native, Flutter or Kotlin Multiplatform. Also trigger on "can we just roll it back", "should this be behind a flag", "how do we drop support for old versions", "our crash-free rate", "the app is slow on Android", "should we build or buy this", or "how do we stop teams breaking each other's screens". Pairs with react-native-fundamentals and react-native-production for the code itself.
 ---
 
 # Mobile apps at scale, for React Native
-
-Source: Gergely Orosz, Building Mobile Apps at Scale (2021). The book is about native iOS and Android; the React Native applications here are interpretations, not the book's claims.
 
 ## The one idea behind all of it
 
@@ -13,7 +11,7 @@ A mobile release is a binary on users' phones. You cannot roll it back, users up
 
 ## Scale the process to the app
 
-Small app, small team: simple is correct. Templates, libraries and shortcuts are fine. Adopt a practice when the pain it solves appears, not before. Rough thresholds from the book:
+Small app, small team: simple is correct. Templates, libraries and shortcuts are fine. Adopt a practice when the pain it solves appears, not before. Rough thresholds:
 
 | Signal | Adopt |
 |---|---|
@@ -35,7 +33,7 @@ Small app, small team: simple is correct. Templates, libraries and shortcuts are
 8. **Accessibility and localisation are cheap only at the start.** Labels and roles on every interactive element as it is written, font scaling left on, layouts tested at the largest text size and with a pseudo-locale, no concatenated translations, money formatted in one place (or by the server), RTL considered.
 9. **Validate purchases on the server.** Entitlements come from the backend, product ids from the backend, store notifications persisted before processing. With more than one store, use a service such as RevenueCat unless IAP is core to the business.
 10. **Every dependency is a risk.** Before adding one: size, maintenance, responsiveness, New Architecture support, whether it will block an RN, Xcode or Gradle upgrade. Initialise SDKs defensively and behind a flag.
-11. **Never log PII; never ship secrets in the bundle.** Tokens in Keychain or Keystore via secure storage, not AsyncStorage. Scrub crash breadcrumbs, analytics and bug report screenshots. Inspect real traffic with a proxy to see what SDKs send.
+11. **Never log PII; never ship secrets in the bundle.** Tokens in `expo-secure-store` (iOS Keychain, Keystore-encrypted storage on Android), never AsyncStorage. Scrub crash breadcrumbs, analytics and bug report screenshots. Inspect real traffic with a proxy to see what SDKs send.
 12. **Measure what users feel.** Crash-free sessions (world-class is 99.99%), cold start to interactive, screen load at p95, dropped frames on the JS and UI threads, app size per PR. Profile release builds on a low-end Android device; dev builds lie.
 
 ## Decisions that need a design doc
@@ -50,8 +48,8 @@ React Native fits organisations with strong JS and web talent and apps not domin
 
 Load the part that matches the task:
 
-- `references/nature-of-mobile.md`: state, irreversible releases, old versions, deeplinks, push, crashes, offline, accessibility, CI/CD and the release train, third-party SDKs, fragmentation, in-app purchases (chapters 1 to 12).
-- `references/app-complexity.md`: navigation architecture, event-driven state bugs, localisation, modules and dependency injection, automated and manual testing (chapters 13 to 18).
-- `references/large-teams.md`: planning and RFCs, architecture that keeps teams apart, shared architecture across apps, tooling, build and merge times, platform teams (chapters 19 to 24).
-- `references/cross-platform.md`: adopting languages and frameworks, KMP, shared business logic, React Native versus Flutter versus native, web views and server-driven UI (chapters 25 to 29).
-- `references/stepping-up.md`: experimentation, feature flag hygiene, performance, analytics and alerting, on-call, code quality checks, privacy and security, client-side migrations, forced upgrades, app size (chapters 30 to 39).
+- `references/nature-of-mobile.md`: state, irreversible releases, old versions, deeplinks, push, crashes, offline, accessibility, CI/CD and the release train, third-party SDKs, fragmentation, in-app purchases.
+- `references/app-complexity.md`: navigation architecture, event-driven state bugs, localisation, modules and dependency injection, automated and manual testing.
+- `references/large-teams.md`: planning and RFCs, architecture that keeps teams apart, shared architecture across apps, tooling, build and merge times, platform teams.
+- `references/cross-platform.md`: adopting languages and frameworks, KMP, shared business logic, React Native versus Flutter versus native, web views and server-driven UI.
+- `references/stepping-up.md`: experimentation, feature flag hygiene, performance, analytics and alerting, on-call, code quality checks, privacy and security, client-side migrations, forced upgrades, app size.

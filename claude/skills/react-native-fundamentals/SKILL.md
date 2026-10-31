@@ -185,7 +185,7 @@ export async function saveToStorage(key: string, data: unknown) {
 }
 ```
 
-Load once in `useEffect`, and save on every mutation (the course's delete handler forgets to, so deletes come back after a restart). Beyond a screen or two, use a state library with an AsyncStorage persistence adapter (see react-native-production).
+Load once in `useEffect`, and save on every mutation, deletes included; a mutation that only updates state comes back after a restart. Beyond a screen or two, use a state library with an AsyncStorage persistence adapter (see react-native-production).
 
 ## Feel: LayoutAnimation and haptics
 

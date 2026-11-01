@@ -45,12 +45,20 @@ Write a short doc, reviewed across iOS, Android and backend, for: anything touch
 
 React Native fits organisations with strong JS and web talent and apps not dominated by brand-new OS APIs or heavy custom rendering. It does not remove the need for native expertise: platform-only bugs now span your code, the framework and the OS, new OS APIs need native modules, and RN upgrades are recurring work. Evaluate on: startup and screen performance on low-end devices, dev experience and tooling, native look and feel, binary size, native interop and type safety across the boundary (Expo Modules, TurboModules), build speed, OTA versioning, and whether the mobile team owns the decision. KMP is the alternative when the goal is shared logic with native UI.
 
+## What React Native changes overall
+
+- **Shipping no longer means a binary.** EAS Update turns many of the slow, irreversible steps (fixes, experiment variants, flag clean-up, incident mitigation) into minutes, within a runtime version. The store, native code and old binaries still set the limits.
+- **One codebase removes the cross-platform tax.** Events, flags, experiments, migrations and runbooks are written once, so iOS and Android drift mostly disappears, and more of the team can read and fix any given issue.
+- **The ecosystem favours buying.** Expo, EAS and vendors with Expo-compatible SDKs (Sentry, PostHog, Statsig, LaunchDarkly, Firebase) cover most of what large companies once built in-house; build only what is specific to your business.
+- **The fundamentals are unchanged.** Old versions in the wild, offline devices, privacy law, on-call, performance budgets and app size still need deliberate engineering.
+- **The JS thread and the native boundary are the new edges.** Most React Native problems at scale come from a busy JavaScript thread or from native code the team does not own; keep native expertise on the team.
+
 ## Reference files
 
-Load the part that matches the task:
+Each file has one section per challenge: the challenge, what React Native and Expo give you, what they do not solve, and how to apply it. Load the file that matches the task:
 
-- `references/nature-of-mobile.md`: state, irreversible releases, old versions, deeplinks, push, crashes, offline, accessibility, CI/CD and the release train, third-party SDKs, fragmentation, in-app purchases.
-- `references/app-complexity.md`: navigation architecture, event-driven state bugs, localisation, modules and dependency injection, automated and manual testing.
-- `references/large-teams.md`: planning and RFCs, architecture that keeps teams apart, shared architecture across apps, tooling, build and merge times, platform teams.
-- `references/cross-platform.md`: adopting languages and frameworks, KMP, shared business logic, React Native versus Flutter versus native, web views and server-driven UI.
-- `references/stepping-up.md`: experimentation, feature flag hygiene, performance, analytics and alerting, on-call, code quality checks, privacy and security, client-side migrations, forced upgrades, app size.
+- `references/nature-of-mobile.md`: State management, Mistakes are hard to revert, The long tail of old app versions, Deeplinks, Push and background notifications, App crashes, Offline support, Accessibility, CI/CD and the build train, Third-party libraries and SDKs, Device and OS fragmentation, In-app purchases.
+- `references/app-complexity.md`: Navigation architecture, Application state and event-driven changes, Localisation, Modular architecture and dependency injection, Automated testing, Manual testing.
+- `references/large-teams.md`: Planning and decision making, Avoiding stepping on each other's toes, Shared architecture across apps, Tooling maturity, Build and merge times, Platform libraries and teams.
+- `references/cross-platform.md`: Adopting new languages and frameworks, Kotlin Multiplatform, Cross-platform feature development, React Native versus native (the 13-point evaluation), Web, PWA and server-driven UI.
+- `references/stepping-up.md`: Experimentation, Feature flag hell, Performance, Analytics, monitoring and alerting, On-call, Code quality checks, Compliance, privacy and security, Client-side data migrations, Forced upgrading, App size.

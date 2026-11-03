@@ -33,11 +33,13 @@ return {
           },
         },
       },
-      -- filters = {
-      --   custom = { ".DS_Store" },
-      -- },
+      filters = {
+        dotfiles = false,
+        git_ignored = false,
+        custom = {},
+      },
       git = {
-        ignore = true,
+        ignore = false,
       },
       update_focused_file = {
         enable = true,

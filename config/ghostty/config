@@ -43,11 +43,13 @@
 # resize-overlay-duration = 4s 200ms
 
 
-font-family = IoskeleyMonoTerm Nerd Font Medium
-font-size = 14
+font-family = Typestar OCR
+font-size = 13
 font-thicken = true
-# tinted-mono Substrata to match nvim; was substrata.txt (full colour)
-theme = substrata-mono.txt
+font-style-italic = false
+font-style-bold-italic = false
+# tinted-mono vague to match nvim
+theme = vague.txt
 window-width = 300
 window-height = 300
 window-padding-x = 16

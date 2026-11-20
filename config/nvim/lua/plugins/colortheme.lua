@@ -39,7 +39,7 @@ return {
         -- Directory drives folder names in nvim-tree (vague paints it with
         -- its hint blue) — grey it out along with nvim-tree's own groups,
         -- without touching DiagnosticHint which shares the blue.
-        on_highlights = function(highlights, _)
+        on_highlights = function(highlights, colors)
           highlights.Directory = { fg = mono.bright }
           highlights.NvimTreeFolderIcon = { fg = mono.dim }
           highlights.NvimTreeFolderName = { fg = mono.bright }
@@ -49,6 +49,27 @@ return {
           highlights.NvimTreeSpecialFile = { fg = mono.peak }
           highlights.NvimTreeExecFile = { fg = mono.peak }
           highlights.NvimTreeSymlink = { fg = mono.mid }
+          -- The tree as a side panel: same background as the editor,
+          -- split from it by a hairline.
+          local panel = colors.bg
+          local hairline = "#252530"
+          highlights.NvimTreeNormal = { fg = mono.mid, bg = panel }
+          highlights.NvimTreeNormalNC = { fg = mono.mid, bg = panel }
+          highlights.NvimTreeEndOfBuffer = { fg = panel, bg = panel }
+          highlights.NvimTreeSignColumn = { bg = panel }
+          highlights.NvimTreeCursorLine = { bg = hairline }
+          highlights.NvimTreeIndentMarker = { fg = "#33333d" }
+          highlights.NvimTreeWinSeparator = { fg = hairline, bg = panel }
+          highlights.WinSeparator = { fg = hairline }
+          -- Git state is shown by tinting the name (no glyph column), so
+          -- these take vague's own git colours rather than the mono ramp.
+          highlights.NvimTreeGitFileNewHL = { fg = colors.plus }
+          highlights.NvimTreeGitFileStagedHL = { fg = colors.plus }
+          highlights.NvimTreeGitFileDirtyHL = { fg = colors.delta }
+          highlights.NvimTreeGitFileRenamedHL = { fg = colors.delta }
+          highlights.NvimTreeGitFileMergeHL = { fg = colors.error }
+          highlights.NvimTreeGitFileDeletedHL = { fg = colors.error }
+          highlights.NvimTreeGitFileIgnoredHL = { fg = mono.ghost }
         end,
       }
       vim.cmd.colorscheme "vague"

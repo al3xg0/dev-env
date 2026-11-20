@@ -3,8 +3,10 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = 'auto'  -- automatically uses the current colorscheme
-      }
+        theme = 'auto', -- automatically uses the current colorscheme
+        globalstatus = true,
+      },
+      extensions = { 'nvim-tree' },
     })
   end
 }

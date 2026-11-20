@@ -8,18 +8,18 @@ return {
         side = 'right',
         width = 35,
         relativenumber = true,
-        adaptive_size = true,
       },
       renderer = {
+        -- just the folder name, not the full ~/path/to/it
+        root_folder_label = ":t",
+        -- git state tints the file name instead of adding a glyph column
+        highlight_git = "name",
         indent_markers = {
-          enable = false,
+          enable = true,
         },
         icons = {
-          glyphs = {
-            folder = {
-              arrow_closed = "⏵",
-              arrow_open = "⏷",
-            },
+          show = {
+            git = false,
           },
         },
       },

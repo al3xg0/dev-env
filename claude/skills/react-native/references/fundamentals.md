@@ -1,9 +1,3 @@
----
-name: react-native-fundamentals
-description: >-
-  Building React Native apps with Expo. Use when starting a new React Native or Expo project, writing screens and components, styling with StyleSheet and flexbox, setting up Expo Router (stack, tabs, modals, nested navigators, header buttons), rendering lists with FlatList or ScrollView, handling TextInput, persisting state with AsyncStorage, adding LayoutAnimation, haptics or local notifications, or working with dates and timers. Also trigger on "text strings must be rendered within a <Text> component", "PluginError: Failed to resolve plugin for module expo-router", "my notification fires immediately", "padding cuts off the end of my ScrollView", or "should I use npm install or expo install". For development builds, EAS, config plugins, fonts, splash, deep links and store release, use react-native-production. For architecture and operating an app at scale, use react-native-at-scale.
----
-
 # React Native fundamentals with Expo
 
 Written against Expo SDK 58 (React Native 0.88, React 19.3). Versions move fast: check the current SDK before pinning anything, and let `npx expo install` choose versions.
@@ -11,7 +5,7 @@ Written against Expo SDK 58 (React Native 0.88, React 19.3). Versions move fast:
 ## Defaults
 
 - Start with Expo (the framework Meta recommends for new apps), TypeScript and Expo Router.
-- Expo Go is for learning and prototyping only: it ships a fixed set of native modules. Anything real moves to a development build (see react-native-production).
+- Expo Go is for learning and prototyping only: it ships a fixed set of native modules. Anything real moves to a development build (see `references/production.md`).
 - Install every dependency with `npx expo install <pkg>` (dev deps: `npx expo install -- --save-dev <pkgs>`). It uses your package manager but picks the SDK-compatible version.
 - After changing `app.json`, Babel, the entry point or plugins: `npx expo start --clear`.
 
@@ -186,7 +180,7 @@ export async function saveToStorage(key: string, data: unknown) {
 }
 ```
 
-Load once in `useEffect`, and save on every mutation, deletes included; a mutation that only updates state comes back after a restart. Beyond a screen or two, use a state library with an AsyncStorage persistence adapter (see react-native-production).
+Load once in `useEffect`, and save on every mutation, deletes included; a mutation that only updates state comes back after a restart. Beyond a screen or two, use a state library with an AsyncStorage persistence adapter (see `references/production.md`).
 
 ## Feel: LayoutAnimation and haptics
 

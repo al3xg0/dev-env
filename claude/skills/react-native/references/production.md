@@ -1,9 +1,3 @@
----
-name: react-native-production
-description: >-
-  Taking an Expo React Native app from Expo Go to the app stores. Use for Expo Router in a real app (route groups, tabs in a root stack, modals, protected routes and auth, dynamic routes, cold-start deep links), Zustand with persistence, forms, images and files, development builds and prebuild, app.json, app.config.ts, config plugins and env vars, fonts, splash, icons, quick actions, deep links, Reanimated 4, Gesture Handler 3, testing with jest-expo, Testing Library and Maestro, list and image performance, signing, EAS Build, Submit and Update, and App Store or Google Play release. Also trigger on "Expo Go doesn't support this library", "should I commit the ios and android folders", "runOnJS is deprecated", "estimatedItemSize", "eas update", "runtimeVersion" or "TestFlight". Builds on react-native-fundamentals; for scale and release process use react-native-at-scale.
----
-
 # Production React Native with Expo
 
 Written against Expo SDK 58 (React Native 0.88, React 19.3, Expo Router 58, Reanimated 4, Gesture Handler 3, RNTL 14). New SDKs ship three times a year: check the current SDK, and install everything with `npx expo install` so versions match it.

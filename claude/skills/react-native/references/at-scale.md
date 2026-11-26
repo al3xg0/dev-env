@@ -1,9 +1,3 @@
----
-name: react-native-at-scale
-description: >-
-  Engineering practices for mobile apps with many users and many engineers, applied to React Native. Use when designing or reviewing anything hard to undo once shipped in a store binary, such as state and app lifecycle, offline and retries, deeplinks and push, old app versions, forced upgrades, OTA updates, crash reporting, accessibility, localisation, navigation architecture, testing strategy, CI/CD and release trains, third-party SDKs, in-app purchases, feature flags, performance, analytics and alerting, privacy and security, client-side data migrations, app size, or React Native versus native, Flutter or Kotlin Multiplatform. Also trigger on "can we just roll it back", "should this be behind a flag", "how do we drop old versions", "the app is slow on Android" or "build or buy". Pairs with react-native-fundamentals and react-native-production.
----
-
 # Mobile apps at scale, for React Native
 
 ## The one idea behind all of it

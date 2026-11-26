@@ -43,7 +43,7 @@
 # resize-overlay-duration = 4s 200ms
 
 
-font-family = Typestar OCR
+font-family = Typestar
 font-size = 13
 font-thicken = true
 font-style-italic = false

@@ -21,6 +21,16 @@ return {
             },
           },
         },
+        pickers = {
+          find_files = {
+            hidden = true,
+            no_ignore = true,
+            file_ignore_patterns = { "^%.git/", "node_modules/" },
+          },
+          live_grep = {
+            additional_args = { "--hidden", "--no-ignore", "--glob", "!.git/", "--glob", "!node_modules/" },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require("telescope.themes").get_dropdown {

@@ -1,8 +1,3 @@
----
-name: ddd-design-heuristics
-description: Decision heuristics for applying domain-driven design and for evolving or modernising an existing system, from Vlad Khononov's Learning Domain-Driven Design (chapters 10, 11 and 13). Use when the user asks "which pattern should I use here?", wants a tactical design decision tree (business logic pattern, architecture, testing strategy) for a subdomain, is sizing bounded contexts or deciding whether to split one, notices a subdomain changing type (core becoming generic, supporting becoming core), is refactoring transaction scripts to active records, active records to aggregates, or a domain model to event sourcing, is migrating legacy state into an event store, is planning to introduce DDD to a brownfield or legacy codebase (strangler pattern, façade, modular monolith first), or needs to justify DDD decisions to a team or management without appealing to authority. Also trigger on "big ball of mud", "it is painful to add features here", "should this be a microservice", "our contexts are too chatty", or "how do I sell DDD".
----
-
 # DDD design heuristics, evolution and real-world adoption
 
 "It depends" is the right answer to most design questions. This skill lists what it depends on. These are heuristics, rules of thumb that ignore noise and follow the strongest signals. They are not laws; keep thinking critically, and if a team with deep event sourcing experience uses it everywhere and is happy, that is their valid context. The default bias here is **use the simplest tool, escalate only when necessary**.
@@ -112,7 +107,7 @@ One team per bounded context means new teams can force a wide context to split. 
 
 ### Domain knowledge changes
 
-Complexity is often implicit; initial simplicity is deceptive and edge cases, invariants and rules keep appearing, sometimes forcing the model, aggregates and even context boundaries to be rebuilt. Design context boundaries according to the **level of domain knowledge**: unclear and fast-changing means broad; stable and understood means it is safe to narrow, including into microservices. Knowledge is also lost: documentation goes stale, people leave, features are added ad hoc until the codebase is "legacy". Recover it with EventStorming (see `ddd-eventstorming`).
+Complexity is often implicit; initial simplicity is deceptive and edge cases, invariants and rules keep appearing, sometimes forcing the model, aggregates and even context boundaries to be rebuilt. Design context boundaries according to the **level of domain knowledge**: unclear and fast-changing means broad; stable and understood means it is safe to narrow, including into microservices. Knowledge is also lost: documentation goes stale, people leave, features are added ad hoc until the codebase is "legacy". Recover it with EventStorming (see `references/eventstorming.md`).
 
 ### Growth
 

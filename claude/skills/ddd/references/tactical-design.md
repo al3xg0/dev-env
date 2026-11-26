@@ -1,8 +1,3 @@
----
-name: ddd-tactical-design
-description: Tactical domain-driven design and business logic implementation patterns, from Vlad Khononov's Learning Domain-Driven Design (Part II, chapters 5 to 7). Use when implementing or reviewing business logic in any language, when choosing between transaction script, active record, domain model and event-sourced domain model, or when designing value objects, entities, aggregates, aggregate boundaries, domain events, domain services, repositories, optimistic concurrency, idempotency or event stores and projections. Also trigger on questions like "should this be an aggregate?", "is this aggregate too big?", "why is my counter double-incrementing?", "where does this rule live?", "anaemic model", "primitive obsession", or "should we use event sourcing?". Pairs with ddd-strategic-design (which subdomain type the logic belongs to decides the pattern) and ddd-architecture (how the logic is wired into layers, CQRS and messaging).
----
-
 # DDD tactical design
 
 Business logic is the reason the software exists. Tactical design is about choosing the right implementation pattern for the complexity at hand and then applying it correctly. Four patterns, in increasing order of power and cost:
@@ -23,7 +18,7 @@ Organise logic as procedures, one per public operation. Each procedure may talk 
 This is the easiest pattern to get wrong, and most "simple" production data corruption traces back to one of three mistakes:
 
 1. **No transaction around multiple writes.** Updating one table and then inserting into another without a wrapping transaction. A crash in between leaves the system inconsistent. Wrap both in one transaction.
-2. **Implicit distributed transaction across storages.** Writing to the database and then publishing to a message bus. If publishing fails after the commit, consumers never hear about the change. There is no simple fix; use the outbox pattern or CQRS projections (see `ddd-architecture`).
+2. **Implicit distributed transaction across storages.** Writing to the database and then publishing to a message bus. If publishing fails after the commit, consumers never hear about the change. There is no simple fix; use the outbox pattern or CQRS projections (see `references/architecture.md`).
 3. **The caller is part of the transaction.** Even `UPDATE users SET visits = visits + 1` is distributed: the method communicates its result back to the caller. If the response is lost (network outage, process crash), the caller retries and the counter goes up twice. Fix by making the operation **idempotent** (caller passes the new absolute value) or with **optimistic concurrency** (caller passes the value it read; the update only applies if the stored value still matches).
 
 Review checklist for any transaction script:
@@ -95,7 +90,7 @@ return result, or a concurrency error so the caller can retry
 
 **Aggregate root.** One entity in the hierarchy is the public interface. Internal entities are modified only through the root (`ticket.Execute(new AcknowledgeMessage(messageId))` marks a message read; nobody touches `Message` directly).
 
-**Domain events.** Messages describing something significant that has already happened, named in the **past tense** in the ubiquitous language (`TicketEscalated`, `MessageReceived`) and carrying the data needed to act on them (ids, reason, time). An aggregate appends events to its internal collection as part of handling a command; they are part of its public interface. Other aggregates, processes or external systems subscribe. Reliable publishing is an infrastructure concern solved by the outbox pattern (see `ddd-architecture`).
+**Domain events.** Messages describing something significant that has already happened, named in the **past tense** in the ubiquitous language (`TicketEscalated`, `MessageReceived`) and carrying the data needed to act on them (ids, reason, time). An aggregate appends events to its internal collection as part of handling a command; they are part of its public interface. Other aggregates, processes or external systems subscribe. Reliable publishing is an infrastructure concern solved by the outbox pattern (see `references/architecture.md`).
 
 ### Domain services
 
@@ -129,7 +124,7 @@ A state table tells you that a lead is `CONVERTED`; it cannot tell you how many 
 
 - Learning curve for the team.
 - Evolving event schemas is hard (immutable events; see Greg Young's "Versioning in an Event Sourced System").
-- More moving parts: CQRS and projections become mandatory (see `ddd-architecture`).
+- More moving parts: CQRS and projections become mandatory (see `references/architecture.md`).
 
 ### Answers to the usual objections
 
@@ -142,7 +137,7 @@ A state table tells you that a lead is `CONVERTED`; it cannot tell you how many 
 
 When asked which pattern to use, answer in this order:
 
-1. Which subdomain type does this logic belong to? (See `ddd-strategic-design`.)
+1. Which subdomain type does this logic belong to? (See `references/strategic-design.md`.)
 2. Is the logic CRUD-like (transaction script or active record) or governed by rules and invariants (domain model)?
 3. Does the business need history, audit or analysis of the lifecycle, or is money involved? (Consider event sourcing.)
 4. Can the team carry the chosen pattern's complexity?

@@ -1,8 +1,3 @@
----
-name: ddd-distributed-systems
-description: Domain-driven design applied to microservices, event-driven architecture and analytical data (data mesh), from Vlad Khononov's Learning Domain-Driven Design (Part IV, chapters 14 to 16). Use when deciding microservice boundaries (bounded context versus subdomain versus aggregate as a service), diagnosing a distributed big ball of mud, judging whether a service is too fine-grained or too chatty, designing asynchronous integration between services and choosing between event notification, event-carried state transfer and domain events, reviewing an event schema or topic design for temporal, functional or implementation coupling, or designing analytical data products, data warehouses, data lakes or a data mesh on top of bounded contexts. Also trigger on "should every aggregate be a microservice", "we subscribed to all their domain events", "events arrive out of order", "deep versus shallow services", "public versus private events", "star or snowflake schema", or "who owns the analytics model". Builds on ddd-strategic-design and ddd-architecture.
----
-
 # DDD for microservices, event-driven architecture and data mesh
 
 DDD is about boundaries: subdomains bound business capabilities, bounded contexts bound models, aggregates bound transactions. Microservices, event-driven architecture (EDA) and data mesh are all about boundaries too, and all three fail in the same way when boundaries are drawn by technology rather than by the business: the **distributed big ball of mud**, which is more fragile, clumsy and expensive than the monolith it replaced.

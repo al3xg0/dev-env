@@ -1,8 +1,3 @@
----
-name: ddd-strategic-design
-description: Strategic domain-driven design, from Vlad Khononov's Learning Domain-Driven Design (Part I). Use when the user wants to analyse a business domain, classify subdomains as core, generic or supporting, decide what to build in-house versus buy or outsource, cultivate a ubiquitous language or glossary, draw bounded context boundaries, decide team ownership of services, choose how two services or teams should integrate (partnership, shared kernel, conformist, anticorruption layer, open-host service, separate ways), or draw a context map. Also trigger when the user asks "is this a core domain?", "should this be its own service?", "how should these two systems talk?", or when another skill (architect, explorer, ddd-tactical-design) needs the strategic picture before choosing an implementation pattern. Not for implementing aggregates, entities or events (that is ddd-tactical-design) or for running a workshop (ddd-eventstorming).
----
-
 # DDD strategic design
 
 Strategic design answers "what are we building and why" before any code is written. It has four tools, applied in order: analyse the business into subdomains, learn the domain through a ubiquitous language, divide the models into bounded contexts, then define how the contexts integrate on a context map. Use the output to drive every later design decision: which parts deserve the best engineers and the richest patterns, which should be bought, and which can be hacked together.
@@ -162,7 +157,7 @@ When asked to produce a context map, output a Mermaid diagram with contexts as n
 
 ## How this feeds the rest of the design
 
-- Subdomain type decides the business logic pattern: supporting and generic lean towards transaction script and active record; core demands a domain model or event-sourced domain model. See `ddd-tactical-design`.
-- Bounded contexts decide the physical services, their team ownership and their contracts. See `ddd-architecture` for layered, ports and adapters, CQRS and the messaging patterns that implement ACLs, OHS and cross-context workflows.
-- Subdomain types change over time (core becomes generic when a vendor appears; supporting becomes core when the business finds an edge). Re-run this analysis when the business strategy moves. See `ddd-design-heuristics`.
-- To discover subdomains, language and context boundaries collaboratively, run an EventStorming session. See `ddd-eventstorming`.
+- Subdomain type decides the business logic pattern: supporting and generic lean towards transaction script and active record; core demands a domain model or event-sourced domain model. See `references/tactical-design.md`.
+- Bounded contexts decide the physical services, their team ownership and their contracts. See `references/architecture.md` for layered, ports and adapters, CQRS and the messaging patterns that implement ACLs, OHS and cross-context workflows.
+- Subdomain types change over time (core becomes generic when a vendor appears; supporting becomes core when the business finds an edge). Re-run this analysis when the business strategy moves. See `references/design-heuristics.md`.
+- To discover subdomains, language and context boundaries collaboratively, run an EventStorming session. See `references/eventstorming.md`.

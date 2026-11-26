@@ -1,8 +1,3 @@
----
-name: ddd-architecture
-description: Architectural and communication patterns for a bounded context, from Vlad Khononov's Learning Domain-Driven Design (chapters 8 and 9). Use when organising a service's codebase (layered architecture, service or application layer, ports and adapters, hexagonal, onion, clean architecture), when deciding whether to adopt CQRS and how to project read models, when wiring business logic to databases, message buses and external APIs, or when implementing cross-context communication, including anticorruption layers and open-host services (stateless proxies, API gateways, message proxies, stateful translation, interchange contexts), the outbox pattern for reliably publishing domain events, sagas and process managers for workflows that span aggregates. Also trigger on "events get published but the transaction rolled back", "how do I publish domain events reliably", "where does this adapter go", "should commands return data", or "saga versus process manager". Pairs with ddd-tactical-design (which business logic pattern is in use decides the architecture).
----
-
 # DDD architecture and communication patterns
 
 Business logic is the heart of the software, but a codebase also has to take input, produce output, persist state and talk to other systems. Without an organising principle the logic diffuses into controllers, stored procedures and duplicated helpers, and every change becomes a hunt. Architectural patterns draw the boundaries between business logic and everything else; communication patterns make the flow between components reliable.

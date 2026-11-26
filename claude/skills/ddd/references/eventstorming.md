@@ -1,8 +1,3 @@
----
-name: ddd-eventstorming
-description: Plan, facilitate or simulate an EventStorming workshop, from Vlad Khononov's Learning Domain-Driven Design (chapter 12). Use when the user wants to run EventStorming (in person or remote), prepare a session (participants, materials, agenda, legend), model a business process as a timeline of domain events with commands, actors, policies, read models, external systems, aggregates and bounded context candidates, recover lost domain knowledge from a legacy system, explore new requirements with stakeholders, onboard people into a domain, or turn a process description into a first-cut event model. Also trigger when the user describes a business process in prose and asks for domain events, commands or aggregate candidates, or asks "what are the sticky note colours", "big picture versus process level", or "how do I facilitate this". Feeds ddd-strategic-design (bounded contexts) and ddd-tactical-design (aggregates, events).
----
-
 # EventStorming
 
 EventStorming is a low-tech group activity for rapidly modelling a business process as a timeline of domain events on sticky notes, enriched step by step with commands, actors, policies, read models, external systems, aggregates and bounded context candidates. Its real output is not the wall of notes. It is the knowledge shared between stakeholders, the alignment of their mental models, the conflicts and white spots that surface, and the ubiquitous language that forms as people argue about what to write on a note.
@@ -74,9 +69,9 @@ The method is guidance, not law. Adjust the recipe to what works for the group.
 
 ## What the result feeds
 
-- Pivotal events and aggregate clusters: candidate bounded contexts for `ddd-strategic-design`.
-- Commands, events and aggregates: a blueprint for a domain model, and in particular an event-sourced domain model, for `ddd-tactical-design`. Whether to go event-sourced is still a business-driven decision.
-- Policies: candidate sagas and process managers for `ddd-architecture`.
+- Pivotal events and aggregate clusters: candidate bounded contexts for `references/strategic-design.md`.
+- Commands, events and aggregates: a blueprint for a domain model, and in particular an event-sourced domain model, for `references/tactical-design.md`. Whether to go event-sourced is still a business-driven decision.
+- Policies: candidate sagas and process managers for `references/architecture.md`.
 - Hotspots: a backlog of missing knowledge and process inefficiencies.
 - The shared vocabulary on the notes: the first draft of the glossary.
 
